@@ -1,11 +1,10 @@
 def stock_picker(array)
 
-  result = []
+  result = {}
  array.each_with_index do |operand, index|
-    array.each_with_index {|operand2, index2| result << operand2 - operand if index < index2}
+  array.each_with_index {|operand2, index2| result[operand2-operand] = [index, index2] if index < index2}
  end
   result
-  position = result.each_with_index.max[1]
-  first_day = position / (array.length - 1)
+  
 
 end
